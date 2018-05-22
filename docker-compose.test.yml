@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  sut:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - IMAGE_NAME
+    command: phpa --format pretty . || true 2>/dev/null
