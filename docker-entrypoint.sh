@@ -7,6 +7,8 @@ elif [ "$1" = "/vendor/bin/phpa" ]; then
   set -- /sbin/tini -- php "$@"
 elif [ "$1" = "phpa" ]; then
   set -- /sbin/tini -- php /vendor/bin/"$@"
+elif [ -d "$1" ]; then
+  set -- /sbin/tini -- php /vendor/bin/phpa "$@"
 fi
 
 exec "$@"
